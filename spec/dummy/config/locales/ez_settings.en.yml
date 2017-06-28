@@ -1,0 +1,29 @@
+en:
+  ez_settings:
+    label: Ez Settings
+    interfaces:
+      dummy_app:
+        label: Dummy App Settings
+        actions:
+          save:
+            label: Save Dummy Settings
+          cancel:
+            label: Cancel Dummy Settings
+        groups:
+          general:
+            label: General
+          dummy_group:
+            label: Dummy Group
+            keys:
+              dummy_string:
+                label: Dummy String
+              dummy_bool:
+                label: Dummy Bool
+              dummy_integer:
+                label: Dummy Integer
+              dummy_select:
+                label: Dummy Select
+              dummy_not_validate:
+                label: Dummy Not Validate
+              dummy_not_for_ui:
+                label: Dummy Not For UI

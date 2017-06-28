@@ -1,0 +1,9 @@
+.ez-settings-nav
+  div class=(css_for :nav_label)
+    = nav_label
+
+  div class=(css_for :nav_menu)
+    = settings_link
+
+    - interface.groups.each do |group|
+      = group_link(group)

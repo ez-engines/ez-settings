@@ -1,0 +1,18 @@
+#ez-settings
+  = cell 'ez/settings/nav'
+
+  div class="#{css_for :overview_page_wrapper}"
+    - interface.groups.each do |group|
+
+      div class="#{css_for :overview_page_section}"
+        div class="#{css_for :overview_page_section_header}"
+          = group_link(group)
+
+        - group.ui_keys.each do |key|
+          div class="#{css_for :overview_page_section_content}"
+
+            div class="#{css_for :overview_page_section_content_key}"
+              = i18n_key_label(key)
+
+            div class="#{css_for :overview_page_section_content_value}"
+              = group.store(interface.config.backend).send(key.name)

@@ -1,0 +1,4 @@
+div class=(css_for :group_page_form_field_row)
+  div id=(css_for "#{interface.name}-#{model.group}-#{model.name}-wrapper".to_sym)
+   div class=(css_for "group_page_form_#{model.type}_wrapper".to_sym)
+    = form.input model.name, html_options
