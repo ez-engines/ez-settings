@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'ez-core',                    '~> 0.1.1'
 
-  s.add_dependency 'rails',                      '~> 5.0.0'
+  s.add_dependency 'rails',                      '>= 5.0.0'
   s.add_dependency 'cells-rails',                '~> 0.0.8'
   s.add_dependency 'cells-slim',                 '~> 0.0.5'
   s.add_dependency 'simple_form',                '~> 3.5.0'
