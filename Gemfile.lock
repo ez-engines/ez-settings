@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ez-settings (0.1.0)
+    ez-settings (0.1.1)
       cells-rails (~> 0.0.8)
       cells-slim (~> 0.0.5)
       ez-core (~> 0.1.1)
