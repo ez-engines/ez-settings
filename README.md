@@ -8,11 +8,15 @@
 - Convetion over configuration principles.
 - Depends on [ez-core](https://github.com/ez-engines/ez-core)
 
+If you are boring to read all this stuff maybe this video motivates you:
+
+[YouTube demonstrates how easy we integrated ez-settings for our pivorak-web-app only by ±50 lines of code](https://www.youtube.com/watch?v=TiX0QDHEaKA&feature=youtu.be)
+
 ## Installation
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'ez-settings'
+gem 'ez-settings', '~> 0.1'
 ```
 
 And then execute:
@@ -25,16 +29,15 @@ Or install it yourself as:
 $ gem install ez-settings
 ```
 
-## Setup
+and `bundle install`
 
-### Initializer
+### Initialize
 
-Create initializer: `config/initializers/ez_settings.rb` (rails generator would be added in 0.2 version)
+`rails generate ez:settings:install`
 
-If you are boring to read all this stuff maybe this video motivates you:
+Generates initializer config file and I18n yaml file with english keys
 
-[YouTube demonstrates how easy we integrated ez-settings for our pivorak-web-app only by ±50 lines of code](https://www.youtube.com/watch?v=TiX0QDHEaKA&feature=youtu.be)
-
+`config/ez_settings.rb`
 ```ruby
 # By default engine try to inherit from ApplicationController, but you could change this:
 # Ez::Settings.config.base_controller = 'Admin::BaseController'
@@ -44,10 +47,9 @@ If you are boring to read all this stuff maybe this video motivates you:
 #
 # Interface DSL allows you to do this very declaratively
 #
-#
 app = Ez::Settings::Interface.define :app do         # :app - interface name
-  group :general do                                  # :general will be name of the group
-    key :app_title, default: -> { 'Main app title' } # :app_title will be as settings key name for store value in :general group for :app interface
+  group :general do                                  # :general - name of the group
+    key :app_title, default: -> { 'Main app title' } # :app_title - key name for store value in :general group for :app interface
   end
 
   # And so on...
@@ -121,16 +123,18 @@ app.configure do |config|
   # }
 end
 
-# EzSettings uses Ez::Registry from ez-core lib for storing all knowledges in one place.
+# Ez::Settings uses Ez::Registry from ez-core lib for storing all knowledges in one place.
 # This place is registry records for :settings_interfaces registry
 #
 # Register `app` variable as settings interface
-Ez::Registry.in(:settings_interfaces, by: PivorakWebApp) do |registry|
+Ez::Registry.in(:settings_interfaces, by: 'YourAppName') do |registry|
   registry.add app
 end
 ```
+
 ### Routes
 `config/routes.rb`
+
 ```ruby
 Rails.application.routes.draw do
   # your routes code before
@@ -226,7 +230,6 @@ If you need, create locale file with this structure:
 
 ## TODO
 This features will be implemented in upcoming 0.2 and 0.3 releases:
-- `rails g ez:settings:install` it creates `config/ez_settings.rb` and `config/locales/ez-settings.en.yml`
 - Scoped settings (`:scope_id`, `:scope_type`)
 - groups as defined methods for interface
 - controller before actions as configured callbacks
@@ -234,8 +237,8 @@ This features will be implemented in upcoming 0.2 and 0.3 releases:
 - Allow to config endpoints
 - Interface description (and show at UI)
 - Groups description (and show at UI)
-- Database storage as backend
-- Redis storage as backend
+- Database storage as backend (ActiveRecord)
+- Redis storage as backend (RedisRb)
 
 ## Contributing
 Fork => Fix => MR warmly welcomed!

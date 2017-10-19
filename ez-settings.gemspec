@@ -31,4 +31,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'launchy'
   s.add_development_dependency 'faker'
   s.add_development_dependency 'guard-rspec'
+  s.add_development_dependency 'generator_spec'
 end

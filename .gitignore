@@ -6,5 +6,6 @@ spec/dummy/db/*.sqlite3-journal
 spec/dummy/log/*.log
 spec/dummy/tmp/
 spec/dummy/config/settings.yml
+spec/lib/generators/ez/tmp/*
 
 .DS_Store
