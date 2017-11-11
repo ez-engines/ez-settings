@@ -13,8 +13,8 @@ module Ez::Settings
         collection:      model.collection,
         include_blank:   model.default.present?,
         required:        model.required?,
-        checked_value:   TRUE.to_s,
-        unchecked_value: FALSE.to_s
+        checked_value:   true.to_s,
+        unchecked_value: false.to_s
       }.merge(model.options)
     end
   end
