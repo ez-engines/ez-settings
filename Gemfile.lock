@@ -6,6 +6,7 @@ PATH
       cells-slim (~> 0.0.5)
       ez-core (~> 0.1.1)
       rails (>= 5.0.0)
+      redis (~> 3.0)
       simple_form (~> 3.5.0)
 
 GEM
@@ -81,6 +82,8 @@ GEM
     ez-core (0.1.1)
     faker (1.7.3)
       i18n (~> 0.5)
+    fakeredis (0.6.0)
+      redis (~> 3.2)
     ffi (1.9.18)
     formatador (0.2.5)
     generator_spec (0.9.4)
@@ -165,6 +168,7 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    redis (3.3.5)
     rspec (3.6.0)
       rspec-core (~> 3.6.0)
       rspec-expectations (~> 3.6.0)
@@ -228,6 +232,7 @@ DEPENDENCIES
   capybara
   ez-settings!
   faker
+  fakeredis
   generator_spec
   guard-rspec
   launchy
@@ -237,4 +242,4 @@ DEPENDENCIES
   sqlite3
 
 BUNDLED WITH
-   1.15.4
+   1.16.0
