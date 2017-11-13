@@ -1,5 +1,6 @@
 # Ez::Settings
 
+[![Gem Version](https://badge.fury.io/rb/ez-settings.svg)](https://badge.fury.io/rb/ez-settings)
 [![Build Status](https://travis-ci.org/ez-engines/ez-settings.svg?branch=master)](https://travis-ci.org/ez-engines/ez-settings)
 
 **Ez Settings** (read as "easy settings") - one of the [ez-engines](https://github.com/ez-engines) collection that helps easily add settings interface to your [Rails](http://rubyonrails.org/) application.
