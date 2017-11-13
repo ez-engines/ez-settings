@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'rails',                      '>= 5.0.0'
   s.add_dependency 'cells-rails',                '~> 0.0.8'
   s.add_dependency 'cells-slim',                 '~> 0.0.5'
+  s.add_dependency 'redis',                      '~> 3.0'
   s.add_dependency 'simple_form',                '~> 3.5.0'
 
   s.add_development_dependency 'sqlite3'
@@ -32,4 +33,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'faker'
   s.add_development_dependency 'guard-rspec'
   s.add_development_dependency 'generator_spec'
+  s.add_development_dependency 'fakeredis'
 end

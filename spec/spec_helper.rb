@@ -1,3 +1,4 @@
+require 'fakeredis/rspec'
 require 'pry'
 
 RSpec.configure do |config|

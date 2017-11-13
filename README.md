@@ -75,8 +75,10 @@ end
 
 # After defining settings interface groups/keys you need to configure it:
 app.configure do |config|
-  # Backend adapter to store all settings (in current version only file system)
+  # Backend adapter to store all settings
   config.backend = Ez::Settings::Backend::FileSystem.new(Rails.root.join('config', 'settings.yml'))
+  # Redis is also supported:
+  # config.backend = Ez::Settings::Backend::Redis.new('config')
 
   # Default path for redirect in controller
   config.default_path = '/admin/settings'
@@ -102,7 +104,6 @@ app.configure do |config|
   #   group_page_form_string_wrapper:      'ez-settings-group-form-string-wrapper',
   #   group_page_form_boolean_wrapper:     'ez-settings-group-form-boolean-wrapper',
   #   group_page_form_select_wrapper:      'ez-settings-group-form-select-wrapper',
-  #   group_page_actions_wrapper:          'ez-settings-group-actions-wrapper',
   #   group_page_actions_wrapper:          'ez-settings-group-actions-wrapper',
   #   group_page_actions_save_button:      'ez-settings-group-actions-save-btn',
   #   group_page_actions_cancel_link:      'ez-settings-group-actions-cancel-link'
