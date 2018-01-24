@@ -232,15 +232,14 @@ If you need, create locale file with this structure:
 
 ## TODO
 This features will be implemented in upcoming 0.2 and 0.3 releases:
+- JSON API endpoints and `ez_settings_api_for` routes helper
 - Scoped settings (`:scope_id`, `:scope_type`)
-- groups as defined methods for interface
-- controller before actions as configured callbacks
-- JSON API endpoints
-- Allow to config endpoints
+- controller before actions as configured callbacks (for external usage)
 - Interface description (and show at UI)
 - Groups description (and show at UI)
+- Keys description (and show at UI)
 - Database storage as backend (ActiveRecord)
-- Redis storage as backend (RedisRb)
+- UI frameworks adapters: bootsrap3, bootstrap4, foundation, semantic, etc.
 
 ## Contributing
 Fork => Fix => MR warmly welcomed!
