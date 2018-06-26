@@ -24,7 +24,7 @@ RSpec.describe Ez::Settings::Store do
   let(:general_store)   { described_class.new(test_settings.groups[0], file_backend) }
   let(:secondary_store) { described_class.new(test_settings.groups[1], file_backend) }
 
-  before { File.delete(file_backend.file) if File.exists?(file_backend.file) }
+  after { File.delete(file_backend.file) if File.exists?(file_backend.file) }
 
   describe '#initialize' do
     context 'general_store' do
@@ -83,9 +83,16 @@ RSpec.describe Ez::Settings::Store do
   describe '#update' do
     let(:key) { SecureRandom.hex(16) }
 
-
-    it 'work' do
+    it 'works' do
       expect(general_store.backend).to receive(:write).with({:general=>{:app_name=>'Test App', :api_key=>key, :api_token=>nil}})
+
+      general_store.update(api_key:key)
+    end
+
+    it 'calls on_change with changes if present' do
+      general_store.instance_variable_set(:@on_change, Proc.new{})
+
+      expect(general_store.on_change).to receive(:call).with({:api_key=>key})
 
       general_store.update(api_key:key)
     end

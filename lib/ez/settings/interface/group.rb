@@ -29,7 +29,7 @@ module Ez::Settings
       end
 
       def store(backend)
-        Ez::Settings::Store.new(self, backend)
+        Ez::Settings::Store.new(self, backend, options)
       end
 
       private
