@@ -6,12 +6,13 @@ module Ez::Settings
   class Store
     delegate :keys, to: :group
 
-    attr_reader :group, :errors, :backend
+    attr_reader :group, :errors, :backend, :on_change
 
-    def initialize(group, backend)
-      @group   = group
-      @errors  = ActiveModel::Errors.new(self)
-      @backend = backend
+    def initialize(group, backend, options = {})
+      @group     = group
+      @errors    = ActiveModel::Errors.new(self)
+      @backend   = backend
+      @on_change = options.fetch(:on_change, nil)
 
       define_accessors
 
@@ -39,6 +40,8 @@ module Ez::Settings
 
       validate
       return self unless errors.empty?
+
+      on_change.call(changes(params)) if on_change
 
       backend.write(schema)
 
@@ -75,6 +78,17 @@ module Ez::Settings
           instance_variable_set("@#{name}", value)
         end
       end
+    end
+
+    def changes(params)
+      new_data =
+        if params.is_a?(Hash)
+          params.symbolize_keys
+        elsif params.is_a?(ActionController::Parameters)
+          params.permit(keys.map(&:name)).to_h.symbolize_keys
+        end
+
+      new_data.reject { |k, v| data[k] == v }
     end
   end
 end

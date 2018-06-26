@@ -36,8 +36,8 @@ module Ez::Settings
       self.instance_eval(&block)
     end
 
-    def group(name, &block)
-      find_or_initialize_group(name, &block)
+    def group(name, options = {}, &block)
+      find_or_initialize_group(name, options, &block)
     end
 
     def keys
@@ -46,13 +46,13 @@ module Ez::Settings
 
     private
 
-    def find_or_initialize_group(name, &block)
+    def find_or_initialize_group(name, options = {}, &block)
       existing_group = groups.find { |g| g.name == name }
 
       if existing_group
         existing_group.instance_eval(&block)
       else
-        add_group(Group.new(name, self.name, &block))
+        add_group(Group.new(name, self.name, options, &block))
       end
     end
 

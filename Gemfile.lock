@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ez-settings (0.2.1)
+    ez-settings (0.2.2)
       cells-rails (~> 0.0.8)
       cells-slim (~> 0.0.5)
       ez-core (~> 0.1.1)
@@ -207,7 +207,7 @@ GEM
       temple (>= 0.7.6, < 0.9)
       tilt (>= 1.3.3, < 2.1)
     slop (3.6.0)
-    sprockets (3.7.1)
+    sprockets (3.7.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
     sprockets-rails (3.2.1)

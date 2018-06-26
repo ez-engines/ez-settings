@@ -59,7 +59,7 @@ app = Ez::Settings::Interface.define :app do         # :app - interface name
   end
 
   # If you want to see all power of the engine, add this showcase:
-  group :showcase do
+  group :showcase, on_change: ->(changes) { YourHandler.call(changes) } do
     key :string,                        default: -> { 'simple string' }
     key :bool,         type: :boolean,  default: -> { true }
     key :integer,      type: :integer,  default: -> { 777 }
@@ -67,6 +67,8 @@ app = Ez::Settings::Interface.define :app do         # :app - interface name
     key :not_validate, required: false, presence: false
     key :not_for_ui,   required: false, ui:       false
   end
+  # Group could have:
+  # :on_change - closure to call after the group is changed
   # Keys could have:
   # :type (string by default), now ez-settings supports only: string, boolean, integer and select
   # :default value (as callable objects)
