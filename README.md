@@ -175,13 +175,22 @@ GET/PUT: /admin/settings/showcase - showcase group settings
 ```
 
 ### Settings accessors
-In your app you could access to settings values through:
+To access your settings use template `Ez::Settings['interface', 'group', 'key']`.
+
+If you specify only interface you will get a list of its groups.
+```ruby
+Ez::Settings[:all]
+```
+
+If you specify interface & group you will get a list of its keys.
+```ruby
+Ez::Settings[:all, :general]
+```
+
+If you specify interface, group & key you will get its setting value.
 ```ruby
 Ez::Settings[:all, :general, :app_title]
-Ez::Settings[:all, :admin, :app_title]
-Ez::Settings[:all, :showcase, :select]
 ```
-Just use template: `Ez::Settings['interface', 'group', 'key']`
 
 In the case of missing interface/group/key you will receive one of exceptions:
 ```
@@ -189,6 +198,7 @@ NotRegistredInterfaceError
 NotRegistredGroupError
 NotRegistredKeyError
 ```
+
 Be careful ;)
 
 ### I18n
