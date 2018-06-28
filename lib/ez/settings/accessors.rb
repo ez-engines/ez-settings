@@ -10,14 +10,14 @@ module Ez::Settings
       not_registered_interface!(interface_name) unless interface
 
       if only_interface?(interface, group_name, key_name)
-        interface.groups
+        interface
       else
         group = group(interface, group_name)
 
         not_registered_group!(interface_name, group_name) unless group
 
         if interface_and_group?(interface, group_name, key_name)
-          group(interface, group_name).keys
+          group(interface, group_name)
         else
           begin
             store(interface, group).send(key_name.to_sym)

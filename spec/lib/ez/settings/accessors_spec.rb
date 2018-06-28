@@ -43,11 +43,9 @@ RSpec.describe Ez::Settings::Accessors do
   end
 
   context 'only interface is specified' do
-    it 'returns interface groups' do
-      expect(Ez::Settings[:test_settings].count).to   eq 2
-      expect(Ez::Settings[:test_settings]).to         all be_an(Ez::Settings::Interface::Group)
-      expect(Ez::Settings[:test_settings][0].name).to eq :general
-      expect(Ez::Settings[:test_settings][1].name).to eq :secondary
+    it 'returns interface' do
+      expect(Ez::Settings[:test_settings]).to      be_an(Ez::Settings::Interface)
+      expect(Ez::Settings[:test_settings].name).to eq :test_settings
     end
 
     it 'raises error if interface is not registered' do
@@ -57,11 +55,9 @@ RSpec.describe Ez::Settings::Accessors do
   end
 
   context 'only interface & group are specified' do
-    it 'returns group keys' do
-      expect(Ez::Settings[:test_settings, :general].count).to   eq 2
-      expect(Ez::Settings[:test_settings, :general]).to         all be_an(Ez::Settings::Interface::Key)
-      expect(Ez::Settings[:test_settings, :general][0].name).to eq :app_name
-      expect(Ez::Settings[:test_settings, :general][1].name).to eq :api_key
+    it 'returns group' do
+      expect(Ez::Settings[:test_settings, :general]).to be_an(Ez::Settings::Interface::Group)
+      expect(Ez::Settings[:test_settings, :general].name).to eq :general
     end
 
     it 'raises error if interface is not registered' do

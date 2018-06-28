@@ -177,30 +177,22 @@ GET/PUT: /admin/settings/showcase - showcase group settings
 ### Settings accessors
 To access your settings use template `Ez::Settings['interface', 'group', 'key']`.
 
-If you specify only interface you will get a list of its groups.
+Access interface:
 ```ruby
-Ez::Settings[:all]
-#=>
-#  [
-#    <Ez::Settings::Interface::Group:0x007f9dd92256e0 @interface=:all, @keys=[...], @name=:general, @options={}>,
-#    <Ez::Settings::Interface::Group:0x007f9dd92252a8 @interface=:all, @keys=[...], @name=:secondary, @options={}>
-#  ]
+Ez::Settings[:app]
+#=> <Ez::Settings::Interface:0x007ff1ea7d3168 @groups=[...], @keys=[], @name=:app>
 ```
 
-If you specify interface & group you will get a list of its keys.
+Access group:
 ```ruby
-Ez::Settings[:all, :general]
-#=>
-#  [
-#    <Ez::Settings::Interface::Key:0x007f9dd92255a0 @collection=[], @default=nil, @group=:general, @interface=:all, @name=:app_name, @options={}, @required=true, @type=:string, @ui=true>,
-#    <Ez::Settings::Interface::Key:0x007f9dd9225438 @collection=[], @default=nil, @group=:general, @interface=:all, @name=:api_key, @options={}, @required=true, @type=:string, @ui=true>
-#  ]
+Ez::Settings[:app, :general]
+#=> <Ez::Settings::Interface::Group:0x007ff1ea7d2f88 @interface=:app, @keys=[...], @name=:general, @options={}>
 ```
 
-If you specify interface, group & key you will get its setting value.
+Access setting value:
 ```ruby
-Ez::Settings[:all, :general, :app_title]
-# => 'App Title'
+Ez::Settings[:app, :general, :app_title]
+# => 'Main app title'
 ```
 
 In the case of missing interface/group/key you will receive one of exceptions:
