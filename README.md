@@ -180,16 +180,27 @@ To access your settings use template `Ez::Settings['interface', 'group', 'key']`
 If you specify only interface you will get a list of its groups.
 ```ruby
 Ez::Settings[:all]
+#=>
+#  [
+#    <Ez::Settings::Interface::Group:0x007f9dd92256e0 @interface=:all, @keys=[...], @name=:general, @options={}>,
+#    <Ez::Settings::Interface::Group:0x007f9dd92252a8 @interface=:all, @keys=[...], @name=:secondary, @options={}>
+#  ]
 ```
 
 If you specify interface & group you will get a list of its keys.
 ```ruby
 Ez::Settings[:all, :general]
+#=>
+#  [
+#    <Ez::Settings::Interface::Key:0x007f9dd92255a0 @collection=[], @default=nil, @group=:general, @interface=:all, @name=:app_name, @options={}, @required=true, @type=:string, @ui=true>,
+#    <Ez::Settings::Interface::Key:0x007f9dd9225438 @collection=[], @default=nil, @group=:general, @interface=:all, @name=:api_key, @options={}, @required=true, @type=:string, @ui=true>
+#  ]
 ```
 
 If you specify interface, group & key you will get its setting value.
 ```ruby
 Ez::Settings[:all, :general, :app_title]
+# => 'App Title'
 ```
 
 In the case of missing interface/group/key you will receive one of exceptions:
