@@ -15,6 +15,8 @@ module Ez::Settings
         required:        model.required?,
         checked_value:   true.to_s,
         unchecked_value: false.to_s,
+        wrapper:         model.wrapper,
+        right_label:     model.suffix,
         input_html: {
           min: model.min
         }

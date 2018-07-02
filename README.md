@@ -62,7 +62,7 @@ app = Ez::Settings::Interface.define :app do         # :app - interface name
   group :showcase, on_change: ->(changes) { YourHandler.call(changes) } do
     key :string,                        default: -> { 'simple string' }
     key :bool,         type: :boolean,  default: -> { true }
-    key :integer,      type: :integer,  default: -> { 777 }, min: 0, suffix: 'USD'
+    key :integer,      type: :integer,  default: -> { 777 }, min: 0, suffix: 'USD', wrapper: :custom_wrapper
     key :select,       type: :select,   default: -> { 'foo' }, collection: %w(foo bar baz)
     key :not_validate, required: false, presence: false
     key :not_for_ui,   required: false, ui:       false
@@ -76,6 +76,7 @@ app = Ez::Settings::Interface.define :app do         # :app - interface name
   # :ui visible or not (all keys are UI visible by default)
   # :min - the minimum value for the element
   # :suffix - unit of measurement
+  # :wrapper - custom wrapper
 end
 
 # After defining settings interface groups/keys you need to configure it:
@@ -100,8 +101,6 @@ app.configure do |config|
   #   overview_page_section_content:       'ez-settings-overview-section-content',
   #   overview_page_section_content_key:   'ez-settings-overview-section-content-key',
   #   overview_page_section_content_value: 'ez-settings-overview-section-content-value',
-  #   overview_page_cell_with_suffix:      'ez-settings-overview-page-cell-with-suffix',
-  #   overview_page_suffix_label:          'ez-settings-overview-page-suffix-label',
   #   group_page_wrapper:                  'ez-settings-group-wrapper',
   #   group_page_inner_wrapper:            'ez-settings-group-inner-wrapper',
   #   group_page_header:                   'ez-settings-group-header',

@@ -52,8 +52,6 @@ module Ez::Settings
         overview_page_section_content:       'ez-settings-overview-section-content',
         overview_page_section_content_key:   'ez-settings-overview-section-content-key',
         overview_page_section_content_value: 'ez-settings-overview-section-content-value',
-        overview_page_cell_with_suffix:      'ez-settings-overview-page-cell-with-suffix',
-        overview_page_suffix_label:          'ez-settings-overview-page-suffix-label',
         group_page_wrapper:                  'ez-settings-group-wrapper',
         group_page_inner_wrapper:            'ez-settings-group-inner-wrapper',
         group_page_header:                   'ez-settings-group-header',

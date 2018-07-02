@@ -24,9 +24,13 @@ RSpec.describe 'Form' do
     is_expected.to have_css 'label', text: 'Dummy Bool'
     is_expected.to have_checked_field 'Dummy Bool'
 
-    # # Integer field
+    # Integer field
     is_expected.to have_css 'label', text: 'Dummy Integer'
     is_expected.to have_field 'Dummy Integer', with: '777', minimum: '0'
+
+    within('.ui.right.labeled.input') do
+      is_expected.to have_css '.ui.basic.label'
+    end
 
     # Select field
     is_expected.to have_css 'label', text: 'Dummy Select'

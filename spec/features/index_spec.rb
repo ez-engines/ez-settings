@@ -55,7 +55,6 @@ RSpec.describe 'Index' do
   end
 
   it 'shows suffixes where specified' do
-    expect(page).to have_css('.ez-settings-overview-page-cell-with-suffix', count: 1)
-    expect(page).to have_css('.ez-settings-overview-page-suffix-label', count: 1)
+    expect(page).to have_content('EUR', count: 1)
   end
 end

@@ -10,14 +10,7 @@
 
         - group.ui_keys.each do |key|
           div class="#{css_for :overview_page_section_content}"
-
             div class="#{css_for :overview_page_section_content_key}"
               = i18n_key_label(key)
             div class="#{css_for :overview_page_section_content_value}"
-              - if key.suffix
-                div class="#{css_for :overview_page_cell_with_suffix}"
-                  input value=group.store(interface.config.backend).send(key.name)
-                  div class="#{css_for :overview_page_suffix_label}"
-                    = key.suffix
-              - else
-                = group.store(interface.config.backend).send(key.name)
+              = "#{group.store(interface.config.backend).send(key.name)} #{key.suffix}"

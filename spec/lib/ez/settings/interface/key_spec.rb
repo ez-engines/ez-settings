@@ -30,7 +30,8 @@ RSpec.describe Ez::Settings::Interface::Key do
           collection: %i[yes no],
           options:    { some: :option },
           suffix:     'EUR',
-          min:        2
+          min:        2,
+          wrapper:    :custom_wrapper
         )
       end
 
@@ -44,6 +45,7 @@ RSpec.describe Ez::Settings::Interface::Key do
       it { expect(custom_key.options).to    eq({ some: :option }) }
       it { expect(custom_key.suffix).to     eq 'EUR' }
       it { expect(custom_key.min).to        eq 2 }
+      it { expect(custom_key.wrapper).to    eq :custom_wrapper }
     end
   end
 end
