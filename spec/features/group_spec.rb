@@ -26,7 +26,7 @@ RSpec.describe 'Form' do
 
     # # Integer field
     is_expected.to have_css 'label', text: 'Dummy Integer'
-    is_expected.to have_field 'Dummy Integer', with: '777'
+    is_expected.to have_field 'Dummy Integer', with: '777', minimum: '0'
 
     # Select field
     is_expected.to have_css 'label', text: 'Dummy Select'

@@ -14,7 +14,10 @@ module Ez::Settings
         include_blank:   model.default.present?,
         required:        model.required?,
         checked_value:   true.to_s,
-        unchecked_value: false.to_s
+        unchecked_value: false.to_s,
+        input_html: {
+          min: model.min
+        }
       }.merge(model.options)
     end
   end

@@ -20,7 +20,7 @@ RSpec.describe 'Index' do
       expect(page.find_link('Dummy Group')[:href]).to eq '/settings/dummy_group'
     end
 
-    # Ovewview links
+    # Overview links
     within('.ez-settings-overview') do
       is_expected.to have_link 'General'
       expect(page.find_link('General')[:href]).to eq '/settings/general'
@@ -52,5 +52,10 @@ RSpec.describe 'Index' do
     end
 
     expect(page).to have_current_path '/settings/dummy_group'
+  end
+
+  it 'shows suffixes where specified' do
+    expect(page).to have_css('.ez-settings-overview-page-cell-with-suffix', count: 1)
+    expect(page).to have_css('.ez-settings-overview-page-suffix-label', count: 1)
   end
 end

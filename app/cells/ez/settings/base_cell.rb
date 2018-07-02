@@ -52,6 +52,8 @@ module Ez::Settings
         overview_page_section_content:       'ez-settings-overview-section-content',
         overview_page_section_content_key:   'ez-settings-overview-section-content-key',
         overview_page_section_content_value: 'ez-settings-overview-section-content-value',
+        overview_page_cell_with_suffix:      'ez-settings-overview-page-cell-with-suffix',
+        overview_page_suffix_label:          'ez-settings-overview-page-suffix-label',
         group_page_wrapper:                  'ez-settings-group-wrapper',
         group_page_inner_wrapper:            'ez-settings-group-inner-wrapper',
         group_page_header:                   'ez-settings-group-header',
@@ -63,7 +65,7 @@ module Ez::Settings
         group_page_form_select_wrapper:      'ez-settings-group-form-select-wrapper',
         group_page_actions_wrapper:          'ez-settings-group-actions-wrapper',
         group_page_actions_save_button:      'ez-settings-group-actions-save-btn',
-        group_page_actions_cancel_link:      'ez-settings-group-actions-cancel-link',
+        group_page_actions_cancel_link:      'ez-settings-group-actions-cancel-link'
       }.merge(interface.config.custom_css_map)
     end
 

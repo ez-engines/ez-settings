@@ -2,7 +2,7 @@ module Ez::Settings
   class Interface
     class Key
       attr_reader :name, :group, :interface, :type, :default,
-                  :ui, :required, :collection, :options
+                  :ui, :required, :collection, :options, :suffix, :min
 
       def initialize(name, params)
         @name       = name
@@ -14,6 +14,8 @@ module Ez::Settings
         @required   = params.fetch(:required, true)
         @collection = params.fetch(:collection, [])
         @options    = params.fetch(:options, {})
+        @suffix     = params.fetch(:suffix, nil)
+        @min        = params.fetch(:min, nil)
       end
 
       # Alias all boolean-like options to predicates methods, please
