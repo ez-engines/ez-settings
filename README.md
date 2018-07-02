@@ -76,7 +76,7 @@ app = Ez::Settings::Interface.define :app do         # :app - interface name
   # :ui visible or not (all keys are UI visible by default)
   # :min - the minimum value for the element
   # :suffix - unit of measurement
-  # :wrapper - custom wrapper
+  # :wrapper - custom wrapper for simple_form
 end
 
 # After defining settings interface groups/keys you need to configure it:
