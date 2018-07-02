@@ -15,6 +15,7 @@ RSpec.describe Ez::Settings::Interface::Key do
       it { expect(default_key.required).to   eq true }
       it { expect(default_key.collection).to eq [] }
       it { expect(default_key.options).to    eq({}) }
+      it { expect(default_key.suffix).to     be_nil }
     end
 
     context 'custom' do
@@ -27,7 +28,10 @@ RSpec.describe Ez::Settings::Interface::Key do
           ui:         false,
           required:   false,
           collection: %i[yes no],
-          options:    { some: :option }
+          options:    { some: :option },
+          suffix:     'EUR',
+          min:        2,
+          wrapper:    :custom_wrapper
         )
       end
 
@@ -39,6 +43,9 @@ RSpec.describe Ez::Settings::Interface::Key do
       it { expect(custom_key.required).to   eq false }
       it { expect(custom_key.collection).to eq  %i[yes no] }
       it { expect(custom_key.options).to    eq({ some: :option }) }
+      it { expect(custom_key.suffix).to     eq 'EUR' }
+      it { expect(custom_key.min).to        eq 2 }
+      it { expect(custom_key.wrapper).to    eq :custom_wrapper }
     end
   end
 end

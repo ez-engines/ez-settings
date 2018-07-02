@@ -63,7 +63,7 @@ module Ez::Settings
         group_page_form_select_wrapper:      'ez-settings-group-form-select-wrapper',
         group_page_actions_wrapper:          'ez-settings-group-actions-wrapper',
         group_page_actions_save_button:      'ez-settings-group-actions-save-btn',
-        group_page_actions_cancel_link:      'ez-settings-group-actions-cancel-link',
+        group_page_actions_cancel_link:      'ez-settings-group-actions-cancel-link'
       }.merge(interface.config.custom_css_map)
     end
 

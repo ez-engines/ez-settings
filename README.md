@@ -62,7 +62,7 @@ app = Ez::Settings::Interface.define :app do         # :app - interface name
   group :showcase, on_change: ->(changes) { YourHandler.call(changes) } do
     key :string,                        default: -> { 'simple string' }
     key :bool,         type: :boolean,  default: -> { true }
-    key :integer,      type: :integer,  default: -> { 777 }
+    key :integer,      type: :integer,  default: -> { 777 }, min: 0, suffix: 'USD', wrapper: :custom_wrapper
     key :select,       type: :select,   default: -> { 'foo' }, collection: %w(foo bar baz)
     key :not_validate, required: false, presence: false
     key :not_for_ui,   required: false, ui:       false
@@ -74,6 +74,9 @@ app = Ez::Settings::Interface.define :app do         # :app - interface name
   # :default value (as callable objects)
   # :required - be or not (all keys are required by default)
   # :ui visible or not (all keys are UI visible by default)
+  # :min - the minimum value for the element
+  # :suffix - unit of measurement
+  # :wrapper - custom wrapper for simple_form
 end
 
 # After defining settings interface groups/keys you need to configure it:

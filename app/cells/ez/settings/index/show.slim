@@ -10,9 +10,7 @@
 
         - group.ui_keys.each do |key|
           div class="#{css_for :overview_page_section_content}"
-
             div class="#{css_for :overview_page_section_content_key}"
               = i18n_key_label(key)
-
             div class="#{css_for :overview_page_section_content_value}"
-              = group.store(interface.config.backend).send(key.name)
+              = "#{group.store(interface.config.backend).send(key.name)} #{key.suffix}"
