@@ -25,7 +25,6 @@ module Ez::Settings
       def record(existing_settings, pair)
         record = existing_settings.find { |r| r.key == pair[0].to_s }
         return if record.nil?
-
         record.tap { |r| r.value = pair[1] }
       end
     end
