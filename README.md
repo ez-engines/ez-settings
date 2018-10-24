@@ -38,7 +38,7 @@ and `bundle install`
 
 Generates initializer config file and I18n yaml file with english keys
 
-`config/ez_settings.rb`
+`config/initializers/ez_settings.rb`
 ```ruby
 # By default engine try to inherit from ApplicationController, but you could change this:
 # Ez::Settings.config.base_controller = 'Admin::BaseController'
@@ -248,6 +248,26 @@ If you need, create locale file with this structure:
                   label: Not For UI
 ```
 
+### Database storage as backend (ActiveRecord)
+
+`rails generate ez:settings:install_active_records_store`
+
+Generates migration for `ez_settings_store` table.
+
+`rails db:migrate`
+
+Set the appropriate backend in configs:
+
+```ruby
+# config/initializers/ez_settings.rb
+...  
+app.configure do |config|
+  # Backend adapter to store all settings
+  config.backend = Ez::Settings::Backend::ActiveRecord.new
+end
+...
+```
+
 ## TODO
 This features will be implemented in upcoming 0.2 and 0.3 releases:
 - JSON API endpoints and `ez_settings_api_for` routes helper
@@ -256,7 +276,7 @@ This features will be implemented in upcoming 0.2 and 0.3 releases:
 - Interface description (and show at UI)
 - Groups description (and show at UI)
 - Keys description (and show at UI)
-- Database storage as backend (ActiveRecord)
+- ~~Database storage as backend (ActiveRecord)~~
 - UI frameworks adapters: bootsrap3, bootstrap4, foundation, semantic, etc.
 
 ## Contributing
