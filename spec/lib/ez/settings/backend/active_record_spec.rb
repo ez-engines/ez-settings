@@ -31,6 +31,16 @@ RSpec.describe Ez::Settings::Backend::ActiveRecord do
           }
         )
       end
+
+      it 'should merge a few keys in one request' do
+        subject.write(awesome_group: { first: 'important', second: 'more important' })
+        expect(subject.read).to eq(
+          awesome_group: {
+            first: 'important',
+            second: 'more important'
+          }
+        )
+      end
     end
   end
 end

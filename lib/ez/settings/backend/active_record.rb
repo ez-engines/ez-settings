@@ -12,7 +12,7 @@ module Ez::Settings
         group = data.keys[0]
         pairs = data.values[0]
         existing_settings = ActiveRecordsStore.where(group: group, key: pairs.keys)
-        pairs.flat_map do |key, value|
+        pairs.map do |key, value|
           record(existing_settings, key, value) || ActiveRecordsStore.new(group: group, key: key, value: value)
         end.each(&:save!)
       end
