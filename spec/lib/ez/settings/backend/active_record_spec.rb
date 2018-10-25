@@ -1,29 +1,24 @@
 require 'ez/settings/backend/active_record'
 
 RSpec.describe Ez::Settings::Backend::ActiveRecord do
-  subject { described_class.new }
 
   describe '#read' do
     context 'configuration does not exist' do
-      it 'returns empty relation' do
-        expect(described_class.new.read).to eq({})
+      it 'returns empty hash' do
+        expect(subject.read).to eq({})
       end
     end
 
     context 'configuration exists' do
-      before do
-        described_class.new.write(abc: { new: 42 })
-      end
+      before { subject.write(abc: { new: 42 }) }
 
       it 'returns configuration hash' do
-        expect(described_class.new.read).to eq(abc: { new: '42' })
+        expect(subject.read).to eq(abc: { new: '42' })
       end
     end
   end
 
   describe '#write' do
-    subject { described_class.new }
-
     context 'configuration hash exists' do
       it 'should merge new and existing configurations' do
         subject.write(awesome_group: { simple: 'or not' })
