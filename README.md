@@ -276,7 +276,9 @@ This features will be implemented in upcoming 0.2 and 0.3 releases:
 - Interface description (and show at UI)
 - Groups description (and show at UI)
 - Keys description (and show at UI)
-- ~~Database storage as backend (ActiveRecord)~~
+- Database storage as backend (ActiveRecord)
+
+    [ ] - Backend#read method should receive app, group & key attributes and avoid loading all in case of SQL adapter
 - UI frameworks adapters: bootsrap3, bootstrap4, foundation, semantic, etc.
 
 ## Contributing
