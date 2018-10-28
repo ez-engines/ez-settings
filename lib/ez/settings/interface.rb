@@ -4,6 +4,7 @@ require_relative 'store'
 
 require 'ez/configurator'
 require 'ez/settings/backend/file_system'
+require 'ez/settings/backend/active_record'
 
 module Ez::Settings
   class Interface
