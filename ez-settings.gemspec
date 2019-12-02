@@ -16,13 +16,13 @@ Gem::Specification.new do |s|
 
   s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
 
-  s.add_dependency 'ez-core',                    '~> 0.1.1'
+  s.add_dependency 'ez-core',       '~> 0.1.1'
 
-  s.add_dependency 'rails',                      '>= 5.0.0'
-  s.add_dependency 'cells-rails',                '~> 0.0.8'
-  s.add_dependency 'cells-slim',                 '~> 0.0.5'
-  s.add_dependency 'redis',                      '~> 3.0'
-  s.add_dependency 'simple_form',                '>= 3.5.0'
+  s.add_dependency 'rails',         '>= 5.0.0', '<= 7.0.0'
+  s.add_dependency 'cells-rails',   '~> 0.1.0'
+  s.add_dependency 'cells-slim',    '~> 0.0.6'
+  s.add_dependency 'redis',         '~> 4.0'
+  s.add_dependency 'simple_form',   '>= 5.0.1'
 
   s.add_development_dependency 'sqlite3'
   s.add_development_dependency 'rspec-rails'
