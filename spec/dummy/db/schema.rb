@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20181024084358) do
 
-  create_table "ez_settings_store", force: :cascade do |t|
+  create_table "ez_settings", force: :cascade do |t|
     t.string   "group"
     t.string   "key"
     t.string   "value"

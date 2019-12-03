@@ -82,11 +82,18 @@ end
 # After defining settings interface groups/keys you need to configure it:
 app.configure do |config|
   # Backend adapter to store all settings
-  config.backend = Ez::Settings::Backend::FileSystem.new(Rails.root.join('config', 'settings.yml'))
-  # Redis is also supported:
-  # config.backend = Ez::Settings::Backend::Redis.new('config')
+  config.backend = Ez::Settings::Backend::ActiveRecord.new
+  # and DB table name that you can change as well
+  # config.active_record_table_name = :ez_settings_store
 
-  # Default path for redirect in controller
+  # YAML filesystem
+  # config.backend = Ez::Settings::Backend::FileSystem.new(Rails.root.join('config', 'settings.yml'))
+
+  # Redis
+  # require 'redis'
+  # config.backend = Ez::Settings::Backend::Redis.new(Redis.current, namespace: 'myapp')
+
+  # Default path for redirect in the settings controller
   config.default_path = '/admin/settings'
 
   # Pass your custom css classes through css_map config
@@ -138,6 +145,19 @@ Ez::Registry.in(:settings_interfaces, by: 'YourAppName') do |registry|
   registry.add app
 end
 ```
+
+
+### Database storage as backend (ActiveRecord)
+
+You can use migrations generator
+
+`rails generate ez:settings:active_record_migrations`
+
+Generates migration for `ez_settings_store` table.
+
+`rails db:migrate`
+
+
 
 ### Routes
 `config/routes.rb`
@@ -229,10 +249,13 @@ If you need, create locale file with this structure:
           groups:
             general:
               label: General
+              description: General settings of your application
             admin:
               label: Admin
+              description: Admin area settings
             showcase:
               label: Showcase
+              description: Just an example of possible settings UI elements
               keys:
                 string:
                   label: String
@@ -246,26 +269,6 @@ If you need, create locale file with this structure:
                   label: Not Validate
                 not_for_ui:
                   label: Not For UI
-```
-
-### Database storage as backend (ActiveRecord)
-
-`rails generate ez:settings:install_active_records_store`
-
-Generates migration for `ez_settings_store` table.
-
-`rails db:migrate`
-
-Set the appropriate backend in configs:
-
-```ruby
-# config/initializers/ez_settings.rb
-...  
-app.configure do |config|
-  # Backend adapter to store all settings
-  config.backend = Ez::Settings::Backend::ActiveRecord.new
-end
-...
 ```
 
 ## TODO

@@ -8,14 +8,15 @@ module Ez::Settings
     delegate :params, :request, to: :controller
     delegate :dynamic_css_map,  to: :'interface.config'
 
-    SCOPE      = 'ez_settings'
-    LABEL      = 'label'
-    INTERFACES = 'interfaces'
-    GROUPS     = 'groups'
-    KEYS       = 'keys'
-    ACTIONS    = 'actions'
-    SAVE       = 'save'
-    CANCEL     = 'cancel'
+    SCOPE       = 'ez_settings'
+    LABEL       = 'label'
+    DESCRIPTION = 'description'
+    INTERFACES  = 'interfaces'
+    GROUPS      = 'groups'
+    KEYS        = 'keys'
+    ACTIONS     = 'actions'
+    SAVE        = 'save'
+    CANCEL      = 'cancel'
 
     def self.form
       include ActionView::Helpers::FormHelper
@@ -84,6 +85,11 @@ module Ez::Settings
     def i18n_group_label(group)
       t(LABEL, scope:   [SCOPE, INTERFACES, group.interface, GROUPS, group.name],
                default: group.name.to_s.humanize)
+    end
+
+    def i18n_group_description(group)
+      t(DESCRIPTION, scope:   [SCOPE, INTERFACES, group.interface, GROUPS, group.name],
+                     default: group.name.to_s.humanize)
     end
 
     def i18n_key_label(key)

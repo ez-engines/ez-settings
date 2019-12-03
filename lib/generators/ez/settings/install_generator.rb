@@ -103,16 +103,19 @@ end"
         label: App Settings
         actions:
           save:
-            label: Save Settings
+            label: Update
           cancel:
-            label: Cancel Settings
+            label: Cancel
         groups:
           general:
             label: General
+            description: General settings of your application
           admin:
             label: Admin
+            description: Admin area settings
           showcase:
             label: Showcase
+            description: Just an example of possible settings UI elements
             keys:
               string:
                 label: String

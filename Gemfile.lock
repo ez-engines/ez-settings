@@ -6,7 +6,6 @@ PATH
       cells-slim (~> 0.0.6)
       ez-core (~> 0.1.1)
       rails (>= 5.0.0, <= 7.0.0)
-      redis (~> 4.0)
       simple_form (>= 5.0.1)
 
 GEM
@@ -265,4 +264,4 @@ DEPENDENCIES
   sqlite3
 
 BUNDLED WITH
-   1.16.6
+   1.17.3

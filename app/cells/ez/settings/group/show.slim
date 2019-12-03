@@ -5,6 +5,7 @@
     div class=(css_for :group_page_inner_wrapper)
       div class=(css_for :group_page_header)
         = i18n_group_label(group)
+      p = i18n_group_description(group)
 
       div class=(css_for :group_page_form_wrapper)
         = simple_form_for store, as: :settings, url: form_url, method: :put do |f|
