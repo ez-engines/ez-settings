@@ -9,10 +9,6 @@
 - Convetion over configuration principles.
 - Depends on [ez-core](https://github.com/ez-engines/ez-core)
 
-If you are boring to read all this stuff maybe this video motivates you:
-
-[YouTube demonstrates how easy we integrated ez-settings for our pivorak-web-app only by ±50 lines of code](https://www.youtube.com/watch?v=TiX0QDHEaKA&feature=youtu.be)
-
 ## Installation
 Add this line to your application's Gemfile:
 
