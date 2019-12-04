@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
 
-  s.add_dependency 'ez-core',       '~> 0.1.1'
+  s.add_dependency 'ez-core',       '~> 0.2.0'
 
   s.add_dependency 'cells-rails',   '~> 0.1.0'
   s.add_dependency 'cells-slim',    '~> 0.0.6'
