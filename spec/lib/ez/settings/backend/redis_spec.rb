@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'ez/settings/backend/redis'
 
 require 'fakeredis'
@@ -43,8 +45,8 @@ describe Ez::Settings::Backend::Redis do
         subject.write(single: false)
 
         expect(subject.read).to eq(
-          name:   'John Doe',
-          age:    35,
+          name: 'John Doe',
+          age: 35,
           single: false
         )
       end

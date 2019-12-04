@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'generator_spec'
 require 'generators/ez/settings/active_record_migrations_generator'
 

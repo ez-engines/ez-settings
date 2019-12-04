@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'ez/settings/backend/file_system'
 
 RSpec.describe Ez::Settings::Backend::FileSystem do
@@ -24,7 +26,7 @@ RSpec.describe Ez::Settings::Backend::FileSystem do
         subject.read
       end
 
-      it { expect(subject.read).to eq({ a: 'a', b: 'b' }) }
+      it { expect(subject.read).to eq(a: 'a', b: 'b') }
     end
 
     describe '#write' do

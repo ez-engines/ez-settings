@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'interface/group'
 require_relative 'interface/key'
 require_relative 'store'
@@ -30,11 +32,12 @@ module Ez::Settings
 
     def initialize(name)
       @name = name
-      @keys, @groups = [], []
+      @keys = []
+      @groups = []
     end
 
     def define(&block)
-      self.instance_eval(&block)
+      instance_eval(&block)
     end
 
     def group(name, options = {}, &block)

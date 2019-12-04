@@ -273,15 +273,16 @@ If you need, create locale file with this structure:
 
 ## TODO
 This features will be implemented in upcoming 0.2 and 0.3 releases:
-- JSON API endpoints and `ez_settings_api_for` routes helper
-- Scoped settings (`:scope_id`, `:scope_type`)
-- controller before actions as configured callbacks (for external usage)
-- Interface description (and show at UI)
-- Groups description (and show at UI)
-- Keys description (and show at UI)
-- Database storage as backend (ActiveRecord)
-  - [ ] Backend#read method should receive app, group & key attributes and avoid loading all in case of SQL adapter
-- UI frameworks adapters: bootsrap3, bootstrap4, foundation, semantic, etc.
+- [] JSON API endpoints and `ez_settings_api_for` routes helper
+- [] Scoped settings (`:scope_id`, `:scope_type`)
+- [] Controller before actions as configured callbacks (for external usage)
+- [] Interface description (and show at UI)
+- [] Groups description (and show at UI)
+- [] Keys description (and show at UI)
+- [] Database storage as backend (ActiveRecord)
+- [] Backend#read method should receive app, group & key attributes and avoid loading all in case of SQL adapter
+- [] UI frameworks adapters: bootsrap3, bootstrap4, foundation, semantic, etc.
+- [X] Bug: Read only defaul values if ActiveRecord do not ready yet (migrations)
 
 ## Contributing
 Fork => Fix => MR warmly welcomed!

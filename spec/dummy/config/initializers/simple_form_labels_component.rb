@@ -1,16 +1,18 @@
+# frozen_string_literal: true
+
 module SimpleForm
   module Components
     # Needs to be enabled in order to do automatic lookups
     module Labels
       # Name of the component method
-      def left_label(wrapper_options = nil)
+      def left_label(_wrapper_options = nil)
         @left_label ||= begin
           options[:left_label].to_s.html_safe if options[:left_label].present?
         end
       end
 
       # Name of the component method
-      def right_label(wrapper_options = nil)
+      def right_label(_wrapper_options = nil)
         @right_label ||= begin
           options[:right_label].to_s.html_safe if options[:right_label].present?
         end
@@ -27,4 +29,4 @@ module SimpleForm
   end
 end
 
-SimpleForm::Inputs::Base.send(:include, SimpleForm::Components::Labels)
+SimpleForm::Inputs::Base.include SimpleForm::Components::Labels

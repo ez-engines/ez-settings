@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'ez/settings/interface/group'
 
 RSpec.describe Ez::Settings::Interface::Group do
@@ -26,9 +28,9 @@ RSpec.describe Ez::Settings::Interface::Group do
 
     context 'repeat key' do
       it 'raise exception' do
-        expect {
+        expect do
           test_group.instance_eval { key :first_test_key }
-        }.to raise_exception(Ez::Settings::Interface::Group::OverwriteKeyError)
+        end.to raise_exception(Ez::Settings::Interface::Group::OverwriteKeyError)
       end
     end
   end

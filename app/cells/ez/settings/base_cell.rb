@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Ez::Settings
   class BaseCell < Cell::ViewModel
     include RequestDispatcher
@@ -44,27 +46,27 @@ module Ez::Settings
 
     def css_map
       {
-        nav_label:                           'ez-settings-nav-label',
-        nav_menu:                            'ez-settings-nav-menu',
-        nav_menu_item:                       'ez-settings-nav-menu-item',
-        overview_page_wrapper:               'ez-settings-overview',
-        overview_page_section:               'ez-settings-overview-section',
-        overview_page_section_header:        'ez-settings-overview-section-header',
-        overview_page_section_content:       'ez-settings-overview-section-content',
-        overview_page_section_content_key:   'ez-settings-overview-section-content-key',
+        nav_label: 'ez-settings-nav-label',
+        nav_menu: 'ez-settings-nav-menu',
+        nav_menu_item: 'ez-settings-nav-menu-item',
+        overview_page_wrapper: 'ez-settings-overview',
+        overview_page_section: 'ez-settings-overview-section',
+        overview_page_section_header: 'ez-settings-overview-section-header',
+        overview_page_section_content: 'ez-settings-overview-section-content',
+        overview_page_section_content_key: 'ez-settings-overview-section-content-key',
         overview_page_section_content_value: 'ez-settings-overview-section-content-value',
-        group_page_wrapper:                  'ez-settings-group-wrapper',
-        group_page_inner_wrapper:            'ez-settings-group-inner-wrapper',
-        group_page_header:                   'ez-settings-group-header',
-        group_page_form_wrapper:             'ez-settings-group-form-wrapper',
-        group_page_form_inner:               'ez-settings-group-form-inner',
-        group_page_form_field_row:           'ez-settings-group-form-field-row',
-        group_page_form_string_wrapper:      'ez-settings-group-form-string-wrapper',
-        group_page_form_boolean_wrapper:     'ez-settings-group-form-boolean-wrapper',
-        group_page_form_select_wrapper:      'ez-settings-group-form-select-wrapper',
-        group_page_actions_wrapper:          'ez-settings-group-actions-wrapper',
-        group_page_actions_save_button:      'ez-settings-group-actions-save-btn',
-        group_page_actions_cancel_link:      'ez-settings-group-actions-cancel-link'
+        group_page_wrapper: 'ez-settings-group-wrapper',
+        group_page_inner_wrapper: 'ez-settings-group-inner-wrapper',
+        group_page_header: 'ez-settings-group-header',
+        group_page_form_wrapper: 'ez-settings-group-form-wrapper',
+        group_page_form_inner: 'ez-settings-group-form-inner',
+        group_page_form_field_row: 'ez-settings-group-form-field-row',
+        group_page_form_string_wrapper: 'ez-settings-group-form-string-wrapper',
+        group_page_form_boolean_wrapper: 'ez-settings-group-form-boolean-wrapper',
+        group_page_form_select_wrapper: 'ez-settings-group-form-select-wrapper',
+        group_page_actions_wrapper: 'ez-settings-group-actions-wrapper',
+        group_page_actions_save_button: 'ez-settings-group-actions-save-btn',
+        group_page_actions_cancel_link: 'ez-settings-group-actions-cancel-link'
       }.merge(interface.config.custom_css_map)
     end
 
@@ -72,10 +74,10 @@ module Ez::Settings
       context[:controller]
     end
 
-    def group_link(group, options = {})
+    def group_link(group, _options = {})
       link_to i18n_group_label(group),
-        group_path(group),
-        class: css_for(:nav_menu_item, dynamic: "settings/#{group.name}")
+              group_path(group),
+              class: css_for(:nav_menu_item, dynamic: "settings/#{group.name}")
     end
 
     def group_path(group)
@@ -83,17 +85,17 @@ module Ez::Settings
     end
 
     def i18n_group_label(group)
-      t(LABEL, scope:   [SCOPE, INTERFACES, group.interface, GROUPS, group.name],
+      t(LABEL, scope: [SCOPE, INTERFACES, group.interface, GROUPS, group.name],
                default: group.name.to_s.humanize)
     end
 
     def i18n_group_description(group)
-      t(DESCRIPTION, scope:   [SCOPE, INTERFACES, group.interface, GROUPS, group.name],
+      t(DESCRIPTION, scope: [SCOPE, INTERFACES, group.interface, GROUPS, group.name],
                      default: group.name.to_s.humanize)
     end
 
     def i18n_key_label(key)
-      t(LABEL, scope:   [SCOPE, INTERFACES, key.interface, GROUPS, key.group, KEYS, key.name],
+      t(LABEL, scope: [SCOPE, INTERFACES, key.interface, GROUPS, key.group, KEYS, key.name],
                default: key.name.to_s.humanize)
     end
   end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Ez::Settings::Engine.routes.draw do
   scope module: 'ez/settings' do
     root to: 'settings#index'

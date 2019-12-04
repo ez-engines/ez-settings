@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 module Ez::Settings
   class InstallGenerator < Rails::Generators::Base
     def create_initializer_file
-      create_file "config/initializers/ez_settings.rb",
-        "# By default engine try to inherit from ApplicationController, but you could change this:
+      create_file 'config/initializers/ez_settings.rb',
+                  "# By default engine try to inherit from ApplicationController, but you could change this:
 # Ez::Settings.config.base_controller = 'Admin::BaseController'
 #
 # Then you should define settings interfaces (you can create as much as you need)
@@ -94,8 +96,8 @@ end"
     end
 
     def create_locale_file
-      create_file "config/locales/ez_settings.en.yml",
-        "en:
+      create_file 'config/locales/ez_settings.en.yml',
+                  "en:
   ez_settings:
     label: Ez Settings
     interfaces:

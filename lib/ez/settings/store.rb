@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'active_model'
 
 require 'ez/settings/config'
@@ -23,7 +25,7 @@ module Ez::Settings
       @errors = ActiveModel::Errors.new(self)
 
       group.keys.select(&:required?).each do |key|
-        errors.add(key.name, "can't be blank") if self.send(key.name).blank?
+        errors.add(key.name, "can't be blank") if send(key.name).blank?
       end
     end
 
@@ -36,12 +38,12 @@ module Ez::Settings
     end
 
     def update(params)
-      params.each { |key, value| self.public_send("#{key}=", value) }
+      params.each { |key, value| public_send("#{key}=", value) }
 
       validate
       return self unless errors.empty?
 
-      on_change.call(changes(params)) if on_change
+      on_change&.call(changes(params))
 
       backend.write(schema)
 

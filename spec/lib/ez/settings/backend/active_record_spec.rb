@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'ez/settings/backend/active_record'
 
 RSpec.describe Ez::Settings::Backend::ActiveRecord do
-
   describe '#read' do
     context 'configuration does not exist' do
       it 'returns empty hash' do

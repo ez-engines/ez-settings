@@ -1,4 +1,6 @@
-$:.push File.expand_path('../lib', __FILE__)
+# frozen_string_literal: true
+
+$LOAD_PATH.push File.expand_path('lib', __dir__)
 
 # Maintain your gem's version:
 require 'ez/settings/version'
@@ -18,19 +20,19 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'ez-core',       '~> 0.1.1'
 
-  s.add_dependency 'rails',         '>= 5.0.0', '<= 7.0.0'
   s.add_dependency 'cells-rails',   '~> 0.1.0'
   s.add_dependency 'cells-slim',    '~> 0.0.6'
+  s.add_dependency 'rails',         '>= 5.0.0', '<= 7.0.0'
   s.add_dependency 'simple_form',   '>= 5.0.1'
 
-  s.add_development_dependency 'sqlite3'
-  s.add_development_dependency 'rspec-rails'
-  s.add_development_dependency 'pry-rails'
-  s.add_development_dependency 'simplecov'
   s.add_development_dependency 'capybara'
-  s.add_development_dependency 'launchy'
   s.add_development_dependency 'faker'
-  s.add_development_dependency 'guard-rspec'
-  s.add_development_dependency 'generator_spec'
   s.add_development_dependency 'fakeredis'
+  s.add_development_dependency 'generator_spec'
+  s.add_development_dependency 'guard-rspec'
+  s.add_development_dependency 'launchy'
+  s.add_development_dependency 'pry-rails'
+  s.add_development_dependency 'rspec-rails'
+  s.add_development_dependency 'simplecov'
+  s.add_development_dependency 'sqlite3'
 end

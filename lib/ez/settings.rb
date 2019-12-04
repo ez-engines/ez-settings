@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'ez/settings/engine'
 
 require 'ez/registry'

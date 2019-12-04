@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Ez::Settings
   NotRegistredInterfaceError = Class.new(StandardError)
   NotRegistredGroupError     = Class.new(StandardError)

@@ -1,17 +1,19 @@
+# frozen_string_literal: true
+
 require 'generator_spec'
 require 'generators/ez/settings/install_generator'
 
 describe Ez::Settings::InstallGenerator, type: :generator do
-  destination File.expand_path("../../tmp", __FILE__)
-  arguments %w(something)
+  destination File.expand_path('../tmp', __dir__)
+  arguments %w[something]
 
   before(:all) do
     prepare_destination
     run_generator
   end
 
-  it "creates a config initializer" do
-    assert_file "config/initializers/ez_settings.rb",         "# By default engine try to inherit from ApplicationController, but you could change this:
+  it 'creates a config initializer' do
+    assert_file 'config/initializers/ez_settings.rb', "# By default engine try to inherit from ApplicationController, but you could change this:
 # Ez::Settings.config.base_controller = 'Admin::BaseController'
 #
 # Then you should define settings interfaces (you can create as much as you need)
@@ -102,8 +104,8 @@ Ez::Registry.in(:settings_interfaces, by: 'YourAppName') do |registry|
 end"
   end
 
-  it "creates a I18n yaml file" do
-    assert_file "config/locales/ez_settings.en.yml", "en:
+  it 'creates a I18n yaml file' do
+    assert_file 'config/locales/ez_settings.en.yml', "en:
   ez_settings:
     label: Ez Settings
     interfaces:
@@ -138,5 +140,5 @@ end"
               not_for_ui:
                 label: Not For UI
         "
-      end
+  end
 end

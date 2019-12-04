@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Ez::Settings
   class KeyCell < BaseCell
     form
@@ -8,15 +10,15 @@ module Ez::Settings
 
     def html_options
       {
-        label:           i18n_key_label(model),
-        as:              model.type,
-        collection:      model.collection,
-        include_blank:   model.default.present?,
-        required:        model.required?,
-        checked_value:   true.to_s,
+        label: i18n_key_label(model),
+        as: model.type,
+        collection: model.collection,
+        include_blank: model.default.present?,
+        required: model.required?,
+        checked_value: true.to_s,
         unchecked_value: false.to_s,
-        wrapper:         model.wrapper,
-        right_label:     model.suffix,
+        wrapper: model.wrapper,
+        right_label: model.suffix,
         input_html: {
           min: model.min
         }

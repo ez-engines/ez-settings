@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'key'
 require_relative '../store'
 

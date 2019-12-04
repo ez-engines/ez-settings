@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Ez
   module Settings
     module RequestDispatcher
@@ -8,7 +10,7 @@ module Ez
 
         # TODO: add raise exception in nil
         Ez::Registry.data(:settings_interfaces).find do |interface|
-          interface.name ==  params[:ez_settings_interface].to_sym
+          interface.name == params[:ez_settings_interface].to_sym
         end
       end
 

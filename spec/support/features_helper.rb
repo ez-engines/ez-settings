@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Ez::Settings
   module Test
     module FeaturesHelpers
@@ -16,11 +18,11 @@ module Ez::Settings
         error_div = "div.#{field}.field_with_errors"
 
         msg = if value == :blank
-          "can't be blank"
-        elsif value == :has_been_taken
-          'has already been taken'
-        else
-          value
+                "can't be blank"
+              elsif value == :has_been_taken
+                'has already been taken'
+              else
+                value
         end
 
         to_or_not = no ? :not_to : :to
@@ -29,7 +31,7 @@ module Ez::Settings
 
         return if no
 
-        expect(find("#{error_div}")).send(to_or_not, have_content(msg))
+        expect(find(error_div.to_s)).send(to_or_not, have_content(msg))
       end
 
       def expect_not_an_error(hash_pair = {})
@@ -39,7 +41,7 @@ module Ez::Settings
       def delete_dummy_config_file!
         config_file = Rails.root.join('spec', 'dummy', 'config', 'settings.yml')
 
-        File.delete(config_file) if File.exists?(config_file)
+        File.delete(config_file) if File.exist?(config_file)
       end
     end
   end

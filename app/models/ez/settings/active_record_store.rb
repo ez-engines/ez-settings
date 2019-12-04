@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Ez
   module Settings
     class ActiveRecordStore < Ez::Settings::ApplicationRecord

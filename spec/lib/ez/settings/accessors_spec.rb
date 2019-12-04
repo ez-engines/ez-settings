@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 require 'ez/settings'
 
@@ -27,17 +29,17 @@ RSpec.describe Ez::Settings::Accessors do
     it { expect(Ez::Settings[:test_settings, :secondary, :redundant_field]).to be_nil }
 
     it 'raises error if interface is not registered' do
-      expect{ Ez::Settings[:not_registred_interface, :not_defined_group, :not_defined_key] }
+      expect { Ez::Settings[:not_registred_interface, :not_defined_group, :not_defined_key] }
         .to raise_error Ez::Settings::NotRegistredInterfaceError
     end
 
     it 'raises error if group is not registered' do
-      expect{ Ez::Settings[:test_settings, :not_defined_group, :not_defined_key] }
+      expect { Ez::Settings[:test_settings, :not_defined_group, :not_defined_key] }
         .to raise_error Ez::Settings::NotRegistredGroupError
     end
 
     it 'raises error if key is not registered' do
-      expect{ Ez::Settings[:test_settings, :general, :not_defined_key] }
+      expect { Ez::Settings[:test_settings, :general, :not_defined_key] }
         .to raise_error Ez::Settings::NotRegistredKeyError
     end
   end
@@ -49,7 +51,7 @@ RSpec.describe Ez::Settings::Accessors do
     end
 
     it 'raises error if interface is not registered' do
-      expect{ Ez::Settings[:not_registred_interface] }
+      expect { Ez::Settings[:not_registred_interface] }
         .to raise_error Ez::Settings::NotRegistredInterfaceError
     end
   end
@@ -61,12 +63,12 @@ RSpec.describe Ez::Settings::Accessors do
     end
 
     it 'raises error if interface is not registered' do
-      expect{ Ez::Settings[:not_registred_interface, :general] }
+      expect { Ez::Settings[:not_registred_interface, :general] }
         .to raise_error Ez::Settings::NotRegistredInterfaceError
     end
 
     it 'raises error if group is not registered' do
-      expect{ Ez::Settings[:test_settings, :not_defined_group] }
+      expect { Ez::Settings[:test_settings, :not_defined_group] }
         .to raise_error Ez::Settings::NotRegistredGroupError
     end
   end

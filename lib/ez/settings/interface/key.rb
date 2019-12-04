@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Ez::Settings
   class Interface
     class Key
@@ -21,8 +23,8 @@ module Ez::Settings
       end
 
       # Alias all boolean-like options to predicates methods, please
-      alias_method :ui?,       :ui
-      alias_method :required?, :required
+      alias ui? ui
+      alias required? required
     end
   end
 end

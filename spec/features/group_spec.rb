@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Form' do
@@ -34,7 +36,7 @@ RSpec.describe 'Form' do
 
     # Select field
     is_expected.to have_css 'label', text: 'Dummy Select'
-    is_expected.to have_select 'Dummy Select', selected: 'foo', with_options: %w(foo bar baz)
+    is_expected.to have_select 'Dummy Select', selected: 'foo', with_options: %w[foo bar baz]
 
     # Non validation field
     is_expected.to have_css 'label', text: 'Dummy Not Validate'
