@@ -5,6 +5,10 @@ module Ez
     class SettingsController < Ez::Settings::ApplicationController
       include Ez::Settings::RequestDispatcher
 
+      if Ez::Settings.config.controller_context
+        instance_exec(&Ez::Settings.config.controller_context)
+      end
+
       def index
         view :index
       end
