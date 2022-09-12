@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ez-settings (0.4.1)
+    ez-settings (0.5.0)
       cells-rails (~> 0.1.0)
       cells-slim (~> 0.0.6)
       ez-core (~> 0.2.0)
@@ -263,4 +263,4 @@ DEPENDENCIES
   sqlite3
 
 BUNDLED WITH
-   2.1.4
+   2.3.8
