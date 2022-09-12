@@ -53,7 +53,7 @@ RSpec.describe Ez::Settings::Store do
       before { general_store.validate }
 
       it { expect(general_store.errors).to_not be_empty }
-      it { expect(general_store.errors.keys).to eq [:api_key] }
+      it { expect(general_store.errors.key?(:api_key)).to be true }
       it { expect(general_store.errors[:api_key]).to eq ["can't be blank"] }
     end
   end
